@@ -5,6 +5,7 @@ from crewai.tools import BaseTool
 from typing import List
 from mcp import StdioServerParameters 
 from crewai_tools import MCPServerAdapter
+from crewai.knowledge.source.text_file_knowledge_source import TextFileKnowledgeSource
 import os
 import json
 
@@ -18,6 +19,9 @@ class KeboolaDoc():
     def __init__(self):
         super().__init__()
         self.keboola_mcp_tools = None
+        self.keboola_links_knowledge = TextFileKnowledgeSource(
+            file_path="how_keboola_generate_links.txt"
+        )
 
     @agent
     def data_integration_expert(self) -> Agent:
@@ -34,13 +38,21 @@ class KeboolaDoc():
             tools=self.get_keboola_mcp_tools(),
             verbose=True,
         )
+        
+    @agent
+    def flow_expert(self) -> Agent:
+        return Agent(
+            config=self.agents_config['flow_expert'],
+            tools=self.get_keboola_mcp_tools(),
+            verbose=True,
+        )
 
 
     @task
     def source_system_analysis(self) -> Task:
         return Task(
             config=self.tasks_config['source_system_analysis'],
-            output_file="output/integrations.txt",
+            output_file="output/integrations.json",
             agent=self.data_integration_expert()
         )
         
@@ -48,8 +60,16 @@ class KeboolaDoc():
     def transformation_analysis(self) -> Task:
         return Task(
             config=self.tasks_config['transformation_analysis'], 
-            output_file="output/transformations.txt",
+            output_file="output/transformations.json",
             agent=self.transformation_expert()
+        )
+        
+    @task
+    def flow_analysis(self) -> Task:
+        return Task(
+            config=self.tasks_config['flow_analysis'], 
+            output_file="output/flows.json",
+            agent=self.flow_expert()
         )
 
     @crew
@@ -60,6 +80,7 @@ class KeboolaDoc():
             tasks=self.tasks, # Automatically created by the @task decorator
             process=Process.sequential,
             verbose=True,
+            knowledge_sources=[self.keboola_links_knowledge]
         )
     
     def get_keboola_mcp_tools(self, include_write_tools: bool = False) -> List[BaseTool]:
