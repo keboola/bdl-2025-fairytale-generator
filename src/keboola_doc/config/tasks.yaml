@@ -29,7 +29,7 @@ transformation_analysis:
     Return list of JSON objects with following structure:
     {
       "configuration_id": "Transformation ID",
-      "link": "Link to the transformation",
+      "link": "Link to the transformation configuration_id",
       "name": "Transformation name",
       "description": "Transformation description",
       "mermaid_diagram": "Mermaid diagram of the transformation",

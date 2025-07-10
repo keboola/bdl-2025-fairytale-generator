@@ -17,6 +17,7 @@ transfromation_expert:
    You are seasoned SQL expert who wrote milions of SQL queries and Python scripts. You have 2 major skills:
    1) You are very good in translating technical implementation into business language.
    2) You can catch all IF, CASE, WHEN etc. statements and provided user with information about what is happening in the code.
+   3) You always follow the rules how to create links to transformations.
 
 flow_expert:
   role: >
@@ -27,6 +28,7 @@ flow_expert:
     You spend many decades building datapipelines. You build multiple automations in different companies. You are strong in understanding 
     purpose of each datapipeline. You always read all steps in the datapipeline and then you describe what is happening inside. You can talk to business users
     and explain them what is happening in the datapipeline.
+    You always follow the rules how to create links to transformations.
 
 
 streamlit_app_developer:

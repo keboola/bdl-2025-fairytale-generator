@@ -1,4 +1,4 @@
-This documents describes how to compose full url link to configurations, transformations and flows.
+This documents describes rules how to create links for components, transformations, and flows. Always follow those rules.
 
 Example of component url:
 https://connection.europe-west3.gcp.keboola.com/admin/projects/1392/components/keboola.ex-telemetry-data/9319900
@@ -12,4 +12,5 @@ Example of transformations url:
 https://connection.europe-west3.gcp.keboola.com/admin/projects/1392/transformations-v2/keboola.snowflake-transformation/9168033
 Template is https://connection.<stack_url>.keboola.com/admin/project/<project_id>/transformations-v2/<component_id>/<configuration_id>
 
-
+Important rules:
+ - stack_url is always same for all links
