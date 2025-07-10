@@ -1,0 +1,35 @@
+source_system_analysis:
+  description: >
+    Use Keboola MCP server to gather information about all configuration in the project. Focus only on data sources (extractors) and data destinations (wrtiers).
+    Goal is to list all systems that are connected to Keboola and provide user with detailed information about each systems.
+    Categorize systems into logical grous:, API, Accounting, Advertisement, Analytics, CRM, Data Visualization, Database, E-commerce, ERP, File Storage, Marketing, Monitoring, Project Management,and Social.
+    Read descriptions of each component and use description to create detaild information about each systems.
+    Always make sure you are aggregation components into logical groups.
+    Search for all executions of each component to decide whatever component is still in use or should be deprecated/disabled.
+    If component failed to execute in last 30 days, mark it as "Failed to execute in last 30 days".
+  expected_output: >
+    Return list of JSON objects with following structure:
+    {
+      "name": "System name",
+      "description": "System description",
+      "group": "System group",
+      "additional_info": "Additional information about system",
+      "last_execution": "Date of last execution of the component",
+      "failed_to_execute_in_last_30d":"true/false"
+    }
+  agent: data_integration_expert
+transformation_analysis:
+  description: >
+    Your goald is to analyze all transformations in the project and provide user with detailed information about each transformation.
+    Always make sure to read the content of transformation to understand what is happening in the transformation.
+    Create mermaid diagram of the transformation to display what is happening in the transformation. Always make sure that mermaid diagram is correct and code is valid.
+  expected_output: >
+    Return list of JSON objects with following structure:
+    {
+      "name": "Transformation name",
+      "description": "Transformation description",
+      "mermaid_diagram": "Mermaid diagram of the transformation",
+      "last_execution": "Date of last execution of the transformation",
+      "failed_to_execute_in_last_30d":"true/false"
+    }
+    agent: sql_transfromation_expert
