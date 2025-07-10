@@ -10,6 +10,8 @@ source_system_analysis:
   expected_output: >
     Return list of JSON objects with following structure:
     {
+      "configuration_id": "Configuration ID",
+      "link": "Link to the configuration",
       "name": "System name",
       "description": "System description",
       "group": "System group",
@@ -26,6 +28,8 @@ transformation_analysis:
   expected_output: >
     Return list of JSON objects with following structure:
     {
+      "configuration_id": "Transformation ID",
+      "link": "Link to the transformation",
       "name": "Transformation name",
       "description": "Transformation description",
       "mermaid_diagram": "Mermaid diagram of the transformation",
@@ -33,3 +37,35 @@ transformation_analysis:
       "failed_to_execute_in_last_30d":"true/false"
     }
     agent: sql_transfromation_expert
+
+flow_analysis:
+  description: >
+    Your goald is to analyze all flows in the project and provide user with detailed information about each flow.
+    Always make sure to read the content of flow to understand what is happening in the flow.
+    Create mermaid diagram of the flow to display what is happening in the flow. Always make sure that mermaid diagram is correct and code is valid.
+  expected_output: >
+    Return list of JSON objects with following structure:
+    {
+      "name": "Flow name",
+      "description": "Businees flow description",
+      "mermaid_diagram": "Mermaid diagram of the flow",
+      "last_execution": "Date of last execution of the flow",
+      "failed_to_execute_in_last_30d":"true/false",
+      "configuration_id": "Flow ID",
+      "link": "Link to the flow",
+      "flow_steps": [
+        {
+          "step_id": "Step ID",
+          "step_name": "Step name",
+          "step_description": "Step description",
+          "configurations": [
+            {
+              "configuration_id": "Configuration ID",
+              "link": "Link to the configuration",
+              "name": "Configuration name",
+            }
+          ]
+        }
+      ]
+    }
+    agent: flow_expert
