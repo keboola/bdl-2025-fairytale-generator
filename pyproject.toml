@@ -8,6 +8,7 @@ dependencies = [
     "crewai-tools>=0.73.1",
     "httpx>=0.28.1",
     "keboola-component>=1.6.10",
+    "pandas>=2.3.2",
 ]
 
 [project.scripts]
