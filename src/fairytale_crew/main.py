@@ -52,19 +52,20 @@ class FairytaleFlow(Flow[FairytaleState]):
         )
 
         print("Fairytale generated", result.raw)
-        self.state.story_plan = result.raw
+        self.state.fairytale = result.raw
 
     @listen(generate_fairytale)
     def save_fairytale(self):
         print("Saving fairytale")
         os.makedirs("out/tables", exist_ok=True)
         df = pd.read_csv('in/tables/config.csv')
-        df.iloc[0]['fairytale'] = self.state.fairytale
+        df.insert(0, 'fairytale', self.state.fairytale)
         df.to_csv('out/tables/story.csv', index=False, encoding='utf-8', sep=',', quoting=csv.QUOTE_ALL)
         
 
 
 def run():
+    
     ci = CommonInterface()
     params = ci.configuration.parameters
     os.environ["OPENAI_API_KEY"] = params.get("#OPENAI_API_KEY")
