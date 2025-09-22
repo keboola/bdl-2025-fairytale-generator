@@ -34,7 +34,7 @@ class FairytaleFlow(Flow[FairytaleState]):
     @start()
     def fill_state(self):
         print("Filling state")
-        df = pd.read_csv('data/in/tables/config.csv')
+        df = pd.read_csv('in/tables/config.csv')
         if not df.empty:
             row = df.iloc[0]
             for key in row.index:
@@ -57,10 +57,10 @@ class FairytaleFlow(Flow[FairytaleState]):
     @listen(generate_fairytale)
     def save_fairytale(self):
         print("Saving fairytale")
-        os.makedirs("/data/out/tables", exist_ok=True)
-        df = pd.read_csv('data/in/tables/story.csv')
+        os.makedirs("out/tables", exist_ok=True)
+        df = pd.read_csv('in/tables/story.csv')
         df.iloc[0]['fairytale'] = self.state.fairytale
-        df.to_csv('data/out/tables/story.csv', index=False, encoding='utf-8', sep=',', quoting=csv.QUOTE_ALL)
+        df.to_csv('out/tables/story.csv', index=False, encoding='utf-8', sep=',', quoting=csv.QUOTE_ALL)
         
 
 
