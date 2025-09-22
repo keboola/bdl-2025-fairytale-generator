@@ -58,7 +58,7 @@ class FairytaleFlow(Flow[FairytaleState]):
     def save_fairytale(self):
         print("Saving fairytale")
         os.makedirs("out/tables", exist_ok=True)
-        df = pd.read_csv('in/tables/story.csv')
+        df = pd.read_csv('in/tables/config.csv')
         df.iloc[0]['fairytale'] = self.state.fairytale
         df.to_csv('out/tables/story.csv', index=False, encoding='utf-8', sep=',', quoting=csv.QUOTE_ALL)
         
