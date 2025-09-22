@@ -1,20 +1,20 @@
 [project]
-name = "keboola_doc"
+name = "fairytale_crew"
 version = "0.1.0"
-description = "keboola-doc using crewAI"
-authors = [{ name = "Your Name", email = "you@example.com" }]
+description = "fairytale-crew using crewAI"
 requires-python = ">=3.10,<3.14"
 dependencies = [
-    "crewai-tools[mcp]>=0.49.0",
-    "crewai[tools]>=0.140.0,<1.0.0",
+    "crewai>=0.150.0",
+    "httpx>=0.28.1",
+    "keboola-component>=1.6.10"
 ]
 
 [project.scripts]
-keboola_doc = "keboola_doc.main:run"
-run_crew = "keboola_doc.main:run"
-train = "keboola_doc.main:train"
-replay = "keboola_doc.main:replay"
-test = "keboola_doc.main:test"
+fairytale_crew = "fairytale_crew.main:run"
+run_crew = "fairytale_crew.main:run"
+train = "fairytale_crew.main:train"
+replay = "fairytale_crew.main:replay"
+test = "fairytale_crew.main:test"
 
 [build-system]
 requires = ["hatchling"]

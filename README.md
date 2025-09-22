@@ -1,10 +1,10 @@
-# 🚀 KeboolaDoc Crew
+# 🚀 FairytaleCrew
 
 [![Docker](https://img.shields.io/badge/Docker-Ready-blue?logo=docker)](https://www.docker.com/)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-green?logo=python)](https://www.python.org/)
 [![CrewAI](https://img.shields.io/badge/CrewAI-Powered-orange)](https://crewai.com)
 
-A powerful multi-agent AI system built with CrewAI that analyzes Keboola data integration and transformation projects. The crew consists of specialized agents that examine source systems, integrations, and transformations to provide comprehensive analysis and documentation.
+A magical multi-agent AI system built with CrewAI that creates engaging fairytales. The crew consists of specialized agents that plan and write captivating fairytale stories with rich characters, plots, and magical elements.
 
 ## 🛠️ Setup
 
@@ -26,23 +26,23 @@ Launch your crew of AI agents:
 docker-compose run crew
 ```
 
-This command initializes the KeboolaDoc Crew using Docker, assembling the agents and assigning them tasks as defined in your configuration.
+This command initializes the FairytaleCrew using Docker, assembling the agents and assigning them tasks as defined in your configuration.
 
 ## 📊 What the Crew Does
 
-The KeboolaDoc Crew consists of two specialized AI agents:
+The FairytaleCrew consists of two specialized AI agents:
 
-- **Data Integration Expert**: Analyzes source systems and data integration patterns
-- **Transformation Expert**: Examines data transformations and processing logic
+- **Fairytale Planner**: Creates engaging story plans with all the elements of a fairytale
+- **Fairytale Writer**: Writes captivating fairytale stories based on the plans
 
-The crew performs sequential analysis of your Keboola project and generates comprehensive reports.
+The crew works together to create magical and engaging fairytale stories with rich characters, plots, and magical elements.
 
 ## 📁 Output
 
-All analysis results are saved to the `output/` folder:
+All fairytale results are saved to the `output/` folder:
 
-- `output/integrations.txt` - Source system and integration analysis
-- `output/transformations.txt` - Transformation analysis and documentation
+- `output/fairytale_plan.json` - Fairytale story plan and structure
+- `output/fairytale_story.txt` - Complete fairytale story
 
 Make sure the `output/` directory exists before running the crew.
 
@@ -50,15 +50,15 @@ Make sure the `output/` directory exists before running the crew.
 
 ```
 crewai-mcp/
-├── src/keboola_doc/
+├── src/fairytale_crew/
 │   ├── config/
 │   │   ├── agents.yaml    # Agent definitions
 │   │   └── tasks.yaml     # Task configurations
 │   ├── crew.py           # Main crew logic
 │   └── main.py           # Entry point
-├── output/               # Analysis results
-│   ├── integrations.txt  # Integration analysis
-│   └── transformations.txt # Transformation analysis
+├── output/               # Fairytale results
+│   ├── fairytale_plan.json  # Fairytale plan
+│   └── fairytale_story.txt  # Complete fairytale
 ├── docker-compose.yml    # Docker configuration
 ├── .env.dist            # Environment template
 └── README.md            # This file
@@ -74,4 +74,4 @@ This project is licensed under the terms specified in the LICENSE file.
 
 ---
 
-**Happy AI Collaboration! 🤖✨**
+**Happy Fairytale Creation! 🧚‍♀️✨**

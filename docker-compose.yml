@@ -3,7 +3,7 @@ version: '3.8'
 services:
   crew:
     build: .
-    container_name: crewai-mcp
+    container_name: fairytale-crew
     restart: unless-stopped
     
     # Environment variables from .env file
