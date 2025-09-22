@@ -8,6 +8,7 @@ import httpx
 from keboola.component import CommonInterface, UserException
 import os
 import pandas as pd
+import csv
 
 
 class FairytaleState(BaseModel):
@@ -33,7 +34,7 @@ class FairytaleFlow(Flow[FairytaleState]):
     @start()
     def fill_state(self):
         print("Filling state")
-        df = pd.read_csv('data/in/tables/story.csv')
+        df = pd.read_csv('data/in/tables/config.csv')
         if not df.empty:
             row = df.iloc[0]
             for key in row.index:
